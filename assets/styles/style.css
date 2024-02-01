@@ -1,3 +1,24 @@
-#page {
-    height: 200px;
+.colorBox{
+    width: 150px;
+    height: 30px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#goalColorBox{
+    background-color: #ddd;
+}
+
+#currentColorBox{
+    background-color: red;
+}
+
+.colorLabel{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#nextButton{
+
 }
