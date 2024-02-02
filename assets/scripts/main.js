@@ -46,8 +46,10 @@ function buttonClick() {
 
 function showResults() {
     nextButton.innerText = 'New game';
-    console.log(computeRgbDistance(picker.get(), goalColor));
-    console.log(computeLabDistance(picker.get(), goalColor));
+    // console.log(computeRgbDistance(picker.get(), goalColor));
+    console.log(`red: ${picker.get().red() * 255} green: ${picker.get().green() * 255} blue: ${picker.get().blue() * 255}`);
+    console.log(`red: ${goalColor.red() * 255} green: ${goalColor.green() * 255} blue: ${goalColor.blue() * 255}`);
+    console.log(computeLabDistanceNEW(picker.get(), goalColor));
     goalColorBox.style.backgroundColor = goalColor.hex().toUpperCase();
     goalColorLabel.style.color = goalColor.xyz()._y >= 0.5 ? 'black' : 'white';
     currentColorLabel.innerText = picker.get().hex().toUpperCase();
@@ -147,7 +149,7 @@ function computeLabDistance(col1, col2) {
 
     const deltaE = Math.sqrt(Math.pow(deltalp / (kl * sl), 2) + Math.pow(deltacp / (kc * sc), 2) + Math.pow(deltahp / (kh * sh), 2) + rt * (deltacp / (kc * sc)) * (deltahp / (kh * sh)));
 
-    return deltaE.toFixed(DECIMAL_PLACES);
+    return deltaE;
 }
 
 function labColor(colorObj) {
@@ -180,4 +182,23 @@ function labColor(colorObj) {
     const b = 200 * (y - z)
 
     return [l, a, b];
+}
+
+function labToLch(labArr) {
+    // https://gist.github.com/avisek/eadfbe7a7a169b1001a2d3affc21052e
+    const l = labArr[0];
+    const a = labArr[1];
+    const b = labArr[2];
+
+    const c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2))
+
+    let h = Math.atan2(b, a) //Quadrant by signs
+    if (h > 0) {
+        h = (h / Math.PI) * 180
+    } else {
+        h = 360 - (Math.abs(h) / Math.PI) * 180
+    }
+
+    return [l, c, h];
+
 }
