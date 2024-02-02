@@ -5,16 +5,24 @@ h1, p, button{
 .colorBox{
     width: 150px;
     height: 30px;
-    margin: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
     font-size: 1em;
 }
 
+#colorBoxContainer{
+    width: 150px;
+    height: 60px;
+}
+
+.bordered{
+    border: 1px solid black;
+    margin: 10px;
+}
+
 #scoreBox{
-    width: 400px !important;
+    width: 300px !important;
 }
 
 .colorBox:not(#currentColorBox){

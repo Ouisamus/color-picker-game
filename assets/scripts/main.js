@@ -8,7 +8,7 @@ const nextButton = document.getElementById('nextButton');
 const scoreBox = document.getElementById('scoreBox');
 const scoreLabel = document.getElementById('scoreLabel');
 const DECIMAL_PLACES = 1;
-let goalColor, highScore = Number.MAX_VALUE;
+let highScore = Number.MAX_VALUE;
 
 // Draw picker
 const picker = colorjoe.rgb(pickerContainer, 'red', '');
@@ -18,9 +18,8 @@ picker.on("change", color => {
         currentColorLabel.style.color = color.xyz()._y >= 0.5 ? 'black' : 'white';
     }
 });
-
-// Reset
-resetGame();
+const pickerShapes = document.querySelectorAll('.shape');
+let goalColor = generateNewGoalColor();
 
 // Button event listener
 nextButton.addEventListener('click', buttonClick);
@@ -54,6 +53,9 @@ function showResults() {
     let score = computeLabDistance(picker.get(), goalColor);
     highScore = score < highScore ? score : highScore;
     scoreLabel.innerHTML = `<strong>Score: ${score}</strong> High Score: ${highScore}`;
+    for (s of pickerShapes) {
+        s.style.display = 'none';
+    }
 }
 
 function resetGame() {
@@ -63,6 +65,9 @@ function resetGame() {
     goalColorLabel.style.color = 'black';
     currentColorLabel.innerText = '??????';
     picker.set('red');
+    for (s of pickerShapes) {
+        s.style.display = null;
+    }
 }
 
 function computeRgbDistance(col1, col2) {

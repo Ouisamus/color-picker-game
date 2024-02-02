@@ -9,17 +9,19 @@
 
 <body>
   <h1>Put your RGB skills to the test!</h1>
-  <div id="goalColorBox" class="colorBox">
-    <p id="goalColorLabel" class="colorLabel">#FF0000</p>
+  <div id="colorBoxContainer" class="bordered">
+    <div id="goalColorBox" class="colorBox">
+      <p id="goalColorLabel" class="colorLabel">#FF0000</p>
+    </div>
+    <div id="currentColorBox" class="colorBox">
+      <p id="currentColorLabel" class="colorLabel">??????</p>
+    </div>
   </div>
-  <div id="currentColorBox" class="colorBox">
-    <p id="currentColorLabel" class="colorLabel">??????</p>
-  </div>
-  <div id="scoreBox" class="colorBox">
+  <div id="scoreBox" class="colorBox bordered">
     <p id="scoreLabel">High Score: N/A</p>
   </div>
   <div id="pickerContainer"></div>
-  <button id="nextButton" class="colorBox">Check my score!</button>
+  <button id="nextButton" class="colorBox bordered">Check my score!</button>
   <script src="assets/scripts/colorjoe.js"></script>
   <script src="assets/scripts/one-color-all.js"></script>
   <script src="assets/scripts/main.js"></script>
