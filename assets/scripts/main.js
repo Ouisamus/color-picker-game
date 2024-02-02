@@ -79,6 +79,9 @@ function computeRgbDistance(col1, col2) {
     return (distance * 100).toFixed(DECIMAL_PLACES);
 }
 
+/*
+* Following function  adapted from https://github.com/hamada147/IsThisColourSimilar/
+*/
 function computeLabDistance(col1, col2) {
     const col1Arr = labColor(col1);
     const col2Arr = labColor(col2);
@@ -89,7 +92,6 @@ function computeLabDistance(col1, col2) {
     const a2 = col2Arr[1];
     const b2 = col2Arr[2];
 
-    // https://github.com/hamada147/IsThisColourSimilar/
     // Utility functions added to Math Object
     Math.rad2deg = function (rad) {
         return 360 * rad / (2 * Math.PI);
@@ -158,8 +160,10 @@ function computeLabDistance(col1, col2) {
     return deltaE.toFixed(DECIMAL_PLACES);
 }
 
+/*
+* Following function from https://gist.github.com/avisek/eadfbe7a7a169b1001a2d3affc21052e
+*/
 function labColor(colorObj) {
-    // https://gist.github.com/avisek/eadfbe7a7a169b1001a2d3affc21052e
     let x = (colorObj.xyz()._x * 100) / 95.047;
     let y = colorObj.xyz()._y;
     let z = (colorObj.xyz()._z * 100) / 108.883;
