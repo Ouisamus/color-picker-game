@@ -50,7 +50,7 @@ function showResults() {
     goalColorBox.style.backgroundColor = goalColor.hex().toUpperCase();
     goalColorLabel.style.color = goalColor.xyz()._y >= 0.5 ? 'black' : 'white';
     currentColorLabel.innerText = picker.get().hex().toUpperCase();
-    let score = computeLabDistance(picker.get(), goalColor);
+    let score = parseFloat(computeLabDistance(picker.get(), goalColor));
     highScore = score < highScore ? score : highScore;
     scoreLabel.innerHTML = `<strong>Score: ${score}</strong> High Score: ${highScore}`;
     for (s of pickerShapes) {
