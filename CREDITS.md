@@ -1,0 +1,4 @@
+- Color picker from @bebraw at https://github.com/bebraw/colorjoe
+- Color object system from @One-com at https://github.com/One-com/one-color
+- Delta E 2000 calculator function from @hamada147 at https://github.com/hamada147/IsThisColourSimilar/
+- XYZ to LAB function from @avisek at https://gist.github.com/avisek/eadfbe7a7a169b1001a2d3affc21052e
